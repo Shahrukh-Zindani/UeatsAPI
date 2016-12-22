@@ -30,6 +30,29 @@ app.get('/schools', (req, res) => {
 	});
 });
 
+app.get('/schools/:id', (req, res) => {
+	
+	var url = `http://universityeats.com/${req.params.id}`;
+
+	request(url , (error, response, html) => {
+		if(!error && response.statusCode == 200) {
+
+			var $ = cheerio.load(html);
+			var json = {};
+
+			for(var n = 1; n<3; n++){
+				var row = $('.title').get(n);
+				var name = $(row).text()
+				var restaurants = $('.hours').get(n-1);
+				restaurants = $(restaurants).text();
+				restaurants = Number(restaurants.split(' ')[0]);
+				json[name] = restaurants;
+			}
+			
+			res.send(json)
+		}
+	});
+});
 
 
 app.listen(3000, () => {
