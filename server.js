@@ -5,7 +5,7 @@ const request = require('request');
 var app = express();
 
 app.get('/schools', (req, res) => {
-	// this route return an object with the school name as key and the number of restaurants as the value
+	// this route returns an object with the school name as key and the number of restaurants as the value.
 	var url = 'http://universityeats.com/';
 
 	request(url, (error, response, html) => {
@@ -31,7 +31,7 @@ app.get('/schools', (req, res) => {
 });
 
 app.get('/schools/:id', (req, res) => {
-	
+	//this route returns an object giving information about the number of on campus and off campus restaurants.
 	var url = `http://universityeats.com/${req.params.id}`;
 
 	request(url , (error, response, html) => {
@@ -53,6 +53,43 @@ app.get('/schools/:id', (req, res) => {
 		}
 	});
 });
+
+app.get('/schools/:id/:pid', (req, res) => {
+	//this route returns an object giving information about the number of open and closed restaurants.
+	var url = `http://universityeats.com/${req.params.id}/${req.params.pid}`;
+
+	request(url, (error, response, html) => {
+		if(!error && response.statusCode ==200) {
+
+			var $ = cheerio.load(html);
+			var json = {};
+			var numberOfClosed = $('.row.closed').get().length;
+			var numberOfOpen = $('.row').get().length;
+			numberOfOpen = numberOfOpen - numberOfClosed;
+			console.log(numberOfOpen)
+			console.log(numberOfClosed)
+			var openArray = [];
+			var closedArray = [];
+			for(var i =0; i<numberOfOpen; i++) {
+				var row = $('.row').get(i);
+				var info = $(row).children('.info').children().first();
+				var name = $(info).children('.title').text();
+				openArray.push(name);
+			}
+			for(var i =0; i<numberOfClosed; i++) {
+				var row = $('.row.closed').get(i);
+				var info = $(row).children('.info').children().first();
+				var name= $(info).children('.title').text();
+				closedArray.push(name);
+			}
+
+			json['open-restaurants'] = openArray;
+			json['closed-restaurants'] = closedArray;
+			res.send(json);
+			
+		}
+	})
+})
 
 
 app.listen(3000, () => {
