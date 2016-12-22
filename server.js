@@ -5,7 +5,7 @@ const request = require('request');
 var app = express();
 
 app.get('/schools', function(req, res) {
-	
+	// this route return an object with the school name as key and the number of restaurants as the value
 	var url = 'http://universityeats.com/';
 
 	request(url, (error, response, html) => {
