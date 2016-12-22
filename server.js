@@ -4,7 +4,7 @@ const request = require('request');
 
 var app = express();
 
-app.get('/schools', function(req, res) {
+app.get('/schools', (req, res) => {
 	// this route return an object with the school name as key and the number of restaurants as the value
 	var url = 'http://universityeats.com/';
 
@@ -29,6 +29,8 @@ app.get('/schools', function(req, res) {
 		}	
 	});
 });
+
+
 
 app.listen(3000, () => {
 	console.log("Running on 3000");
