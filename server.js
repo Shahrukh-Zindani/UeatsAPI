@@ -2,11 +2,13 @@ const cheerio = require('cheerio');
 const express = require('express');
 const request = require('request');
 
+const url = 'http://universityeats.com/';
+
 var app = express();
 
 app.get('/schools', (req, res) => {
 	// this route returns an object with the school name as key and the number of restaurants as the value.
-	var url = 'http://universityeats.com/';
+	
 
 	request(url, (error, response, html) => {
 		if(!error && response.statusCode == 200) {
@@ -24,7 +26,7 @@ app.get('/schools', (req, res) => {
 				restaurants = Number(restaurants.split(' ')[0]);
 				json[name] = restaurants;
 			}
-			json = JSON.stringify(json, undefined, 2);
+			
 			res.send(json);	
 		}	
 	});
