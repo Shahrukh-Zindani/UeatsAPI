@@ -4,7 +4,7 @@ This is a REST API built entirely in Node.js that can be used to retrieve inform
 
 UEatsAPI can retrieve names of all schools in the database, the number of on campus and off campus restaurants in these schools, and the names of the on campus and off campus restauarnts that are open and closed . 
 
-UEatsAPI is not an official Ueats API, and was simply something I built for fun in my free time. 
+UEatsAPI is not an official UEats API, and was simply something I built for fun in my free time. 
 
 ## Software Stack and Supporting Frameworks Used
 
@@ -16,7 +16,7 @@ UEatsAPI is not an official Ueats API, and was simply something I built for fun 
 
 
 ##Prerequisites
-All that is required to run UeatsAPI is [Node.js](https://nodejs.org/en/), with `npm` installed.
+All that is required to run UEatsAPI is [Node.js](https://nodejs.org/en/), with `npm` installed.
 
 ##Usage
 To use the API, first clone/download this repo. Then, perform the following steps:
@@ -27,7 +27,7 @@ npm install
 node server.js
 ```
 
-This will start the Ueats server, which can be queried to retrieve the required information. 
+This will start the UEats server, which can be queried to retrieve the required information. 
 
 To query the API, first ensure that you have a valid school's name (we will use `ut-dallas` as a sample, in this case).
 
