@@ -50,7 +50,7 @@ app.get('/schools/:id', (req, res) => {
 				restaurants = Number(restaurants.split(' ')[0]);
 				json[name] = restaurants;
 			}
-			json = JSON.stringify(json, undefined, 2);
+			
 			res.send(json)
 		}
 	});
@@ -87,7 +87,6 @@ app.get('/schools/:id/:pid', (req, res) => {
 
 			json['open-restaurants'] = openArray;
 			json['closed-restaurants'] = closedArray;
-			json = JSON.stringify(json, undefined, 2);
 			res.send(json);
 			
 		}
