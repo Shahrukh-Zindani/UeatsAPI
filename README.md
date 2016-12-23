@@ -1,10 +1,10 @@
-# UeatsAPI.
+# UEatsAPI.
 
 This is a REST API built entirely in Node.js that can be used to retrieve information on any school from the a famous website that has record of a lot of on campus and off campus restaurants for a lot of campuses around the US., [University Eats](http://universityeats.com/).
 
-UeatsAPI can retrieve names of all schools in the database, the number of on campus and off campus restaurants in these schools, and the names of the on campus and off campus restauarnts that are open and closed . 
+UEatsAPI can retrieve names of all schools in the database, the number of on campus and off campus restaurants in these schools, and the names of the on campus and off campus restauarnts that are open and closed . 
 
-UeatsAPI is not an official Ueats API, and was simply something I built for fun in my free time. 
+UEatsAPI is not an official Ueats API, and was simply something I built for fun in my free time. 
 
 ## Software Stack and Supporting Frameworks Used
 
@@ -22,7 +22,7 @@ All that is required to run UeatsAPI is [Node.js](https://nodejs.org/en/), with 
 To use the API, first clone/download this repo. Then, perform the following steps:
 
 ```
-cd UeatsAPI
+cd UEatsAPI
 npm install
 node server.js
 ```
